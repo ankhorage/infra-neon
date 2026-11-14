@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "kind": "infrastructure",
+  "title": "Ankhorage Neon Infrastructure",
+  "summary": "Records the repository boundary reserved for Neon-hosted PostgreSQL infrastructure.",
+  "purpose": "Keep ownership of future Neon infrastructure distinct from database application code and provider-neutral database contracts.",
+  "domain": "database infrastructure",
+  "responsibilities": [
+    "Own the repository-level boundary for Neon infrastructure artifacts when they are introduced."
+  ],
+  "boundaries": [
+    "Does not currently contain deployable Neon configuration or automation.",
+    "Does not own provider-neutral database contracts or application persistence behavior."
+  ],
+  "audience": [
+    "Infrastructure maintainers evaluating or introducing Neon-hosted PostgreSQL resources."
+  ],
+  "architecture": {
+    "role": "Non-source infrastructure repository with no deployed implementation on the current default branch.",
+    "invariants": [
+      "Any future provider configuration remains separate from application and database-contract ownership."
+    ]
+  },
+  "constraints": {
+    "limitations": [
+      "The current default branch contains licensing and repository metadata only; it does not provision Neon resources."
+    ]
+  }
+}

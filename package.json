@@ -49,6 +49,9 @@
     "changeset:status": "ankhorage-changeset status --since=origin/main",
     "version-packages": "ankhorage-changeset version"
   },
+  "dependencies": {
+    "@ankhorage/contracts": "^26.13.0"
+  },
   "devDependencies": {
     "@ankhorage/devtools": "^2.9.5",
     "@ankhorage/paradox": "^0.5.0",

@@ -2,28 +2,28 @@
   "schemaVersion": 1,
   "kind": "infrastructure",
   "title": "Ankhorage Neon Infrastructure",
-  "summary": "Records the repository boundary reserved for Neon-hosted PostgreSQL infrastructure.",
-  "purpose": "Keep ownership of future Neon infrastructure distinct from database application code and provider-neutral database contracts.",
+  "summary": "Implements the Neon control-plane adapter for provider-neutral Ankhorage database infrastructure.",
+  "purpose": "Provision and reconcile Neon project resources while keeping database application runtime ownership separate.",
   "domain": "database infrastructure",
   "responsibilities": [
-    "Own the repository-level boundary for Neon infrastructure artifacts when they are introduced."
+    "Own Neon project, branch, database and role control-plane lifecycle through the canonical Infra adapter contract."
   ],
   "boundaries": [
-    "Does not currently contain deployable Neon configuration or automation.",
-    "Does not own provider-neutral database contracts or application persistence behavior."
+    "Does not own provider-neutral database contracts or application persistence behavior.",
+    "Does not provide a Neon-specific SQL runtime adapter."
   ],
   "audience": [
     "Infrastructure maintainers evaluating or introducing Neon-hosted PostgreSQL resources."
   ],
   "architecture": {
-    "role": "Non-source infrastructure repository with no deployed implementation on the current default branch.",
+    "role": "Provider adapter package for Neon-hosted PostgreSQL infrastructure.",
     "invariants": [
-      "Any future provider configuration remains separate from application and database-contract ownership."
+      "Resolved Neon credentials never enter generated outputs, diagnostics or public package APIs."
     ]
   },
   "constraints": {
     "limitations": [
-      "The current default branch contains licensing and repository metadata only; it does not provision Neon resources."
+      "Live Neon operations require an explicit control-plane credential reference and are not run by default."
     ]
   }
 }
